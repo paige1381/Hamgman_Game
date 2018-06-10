@@ -29,7 +29,7 @@
       <div class="blanks">
         <% for (i = 0; i < currentWord.length; i++) { %>
           <div class="blank">
-            <% if (currentLetter === currentWord[i]) { %>
+            <% if (correctLetters.includes(currentWord[i])) { %>
               <%= currentWord[i] %>
             <% } %>
           </div>
