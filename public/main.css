@@ -1,0 +1,102 @@
+body {
+  font-family: Arial;
+}
+
+nav {
+  width: 100%;
+  background-color: lightgrey;
+  padding: 20px 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.menu {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  padding: 0 20px;
+  text-decoration: underline;
+}
+
+ .link:hover, .key:hover, .word-button:hover  {
+  opacity: .7;
+  cursor: pointer;
+}
+
+.keyboard {
+  width: 50%;
+  margin: 50px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.key {
+  border: 1px solid black;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgrey;
+}
+
+.word, .blanks {
+  display: flex;
+  flex-direction: row;
+  width: 75%;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+}
+
+.word-space {
+  border: 1px solid black;
+  width: 20%;
+  padding: 10px;
+}
+
+.word-button {
+  margin-left: 10px;
+  border: 1px solid black;
+  background-color: lightgrey;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.blanks {
+  margin: 100px auto 50px auto;
+}
+
+.blank {
+  border-bottom: 1px solid black;
+  width: 60px;
+  height: 60px;
+  margin: 0 10px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: row;
+  font-size: 30px;
+}
+
+.guesses {
+  width: 75%;
+  margin: auto;
+  text-align: center;
+}
+
+.play-again {
+  display: flex;
+  width: 25%;
+  justify-content: center;
+  margin: 25px auto;
+}

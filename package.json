@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/paige1381/Hamgman_Game/issues"
   },
-  "homepage": "https://github.com/paige1381/Hamgman_Game#readme"
+  "homepage": "https://github.com/paige1381/Hamgman_Game#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3"
+  }
 }

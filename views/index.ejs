@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    <title>Hangman</title>
+  </head>
+  <body>
+    <nav>
+      <div class="menu">
+      </div>
+    </nav>
+
+    <main>
+
+      <div class="keyboard">
+        <% for (i = 0; i < alphabet.length; i++) { %>
+          <a href="/<%= i %>" class="key"><%=alphabet[i]%></a>
+        <% } %>
+      </div>
+
+      <div class="word">
+        <input type="text" class="word-space">
+        </input>
+        <div class="word-button">Guess word
+        </div>
+      </div>
+
+      <div class="blanks">
+        <% for (i = 0; i < currentWord.length; i++) { %>
+          <div class="blank">
+            <% if (currentLetter === currentWord[i]) { %>
+              <%= currentWord[i] %>
+            <% } %>
+          </div>
+        <% } %>
+      </div>
+
+      <div class="guesses">
+        <%=guesses%> guesses left!
+      </div>
+
+      <div class="play-again">
+      </div>
+    </main>
+
+  </body>
+</html>
