@@ -79,7 +79,7 @@ app.get('/:id', (req, res) => {
     correctLetters.push(currentLetter);
   };
   correctLetters = [...new Set(correctLetters)];
-  guesses--;
+  // guesses--;
   res.render('index.ejs', {
     alphabet: alphabet,
     gameWords: gameWords,
