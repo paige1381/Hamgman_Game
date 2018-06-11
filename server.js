@@ -16,7 +16,6 @@ let correctLetters = [];
 let allLetters = [];
 let link = null;
 
-console.log(currentWord);
 
 app.get('/', (req, res) => {
   gameWords = ['RABBIT', 'BUNNY', 'CARROT', 'LETTUCE', 'BURROW', 'FLUFFY', 'FLOPPY', 'LITTER', 'PELLETS'];
@@ -38,13 +37,6 @@ app.get('/', (req, res) => {
     allLetters: allLetters,
     link: link
   });
-  console.log('--- new game ---');
-  console.log('gameWords:', gameWords);
-  console.log('currentWord:', currentWord);
-  console.log('guesses:', guesses);
-  console.log('currentLetter:', currentLetter);
-  console.log('correctLetters:', correctLetters);
-  console.log('allLetters:', allLetters);
 });
 
 
@@ -68,13 +60,6 @@ app.get('/newRound', (req, res) => {
     allLetters: allLetters,
     link: link
   });
-  console.log('--- new round ---');
-  console.log('gameWords:', gameWords);
-  console.log('currentWord:', currentWord);
-  console.log('guesses:', guesses);
-  console.log('currentLetter:', currentLetter);
-  console.log('correctLetters:', correctLetters);
-  console.log('allLetters:', allLetters);
 });
 
 
@@ -91,21 +76,12 @@ app.get('/share', (req, res) => {
     allLetters: allLetters,
     link: link
   });
-  console.log('--- new round ---');
-  console.log('gameWords:', gameWords);
-  console.log('currentWord:', currentWord);
-  console.log('guesses:', guesses);
-  console.log('currentLetter:', currentLetter);
-  console.log('correctLetters:', correctLetters);
-  console.log('allLetters:', allLetters);
 });
 
 
 app.get('/undo', (req, res) => {
   guesses++;
   let undoLetter = allLetters.pop();
-  console.log(undoLetter);
-  console.log(allLetters);
   let index = correctLetters.indexOf(undoLetter);
   if (index >= 0) {
     correctLetters.splice(index, 1);
@@ -123,13 +99,6 @@ app.get('/undo', (req, res) => {
     allLetters: allLetters,
     link: link
   });
-  console.log('--- undo ---');
-  console.log('gameWords:', gameWords);
-  console.log('currentWord:', currentWord);
-  console.log('guesses:', guesses);
-  console.log('currentLetter:', currentLetter);
-  console.log('correctLetters:', correctLetters);
-  console.log('allLetters:', allLetters);
 });
 
 
@@ -153,13 +122,6 @@ app.get('/:id', (req, res) => {
     allLetters: allLetters,
     link: link
   });
-  console.log('--- new turn ---');
-  console.log('gameWords:', gameWords);
-  console.log('currentWord:', currentWord);
-  console.log('guesses:', guesses);
-  console.log('currentLetter:', currentLetter);
-  console.log('correctLetters:', correctLetters);
-  console.log('allLetters:', allLetters);
 });
 
 
