@@ -31,6 +31,10 @@
         </div>
       </div>
 
+      <% for (i = 0; i < currentWord.length; i++) { %>
+        <span><%=currentWord[i]%></span>
+      <% } %>
+
       <div class="blanks">
         <% for (i = 0; i < currentWord.length; i++) { %>
           <div class="blank">
