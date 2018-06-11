@@ -37,6 +37,14 @@
 
       <%= guesses %>
 
+      <%= currentLetter %></br>
+      <% for (i = 0; i < correctLetters.length; i++) { %>
+        <span><%=correctLetters[i]%></span>
+      <% } %></br>
+      <% for (i = 0; i < allLetters.length; i++) { %>
+        <span><%=allLetters[i]%></span>
+      <% } %>
+
       <div class="blanks">
         <% for (i = 0; i < currentWord.length; i++) { %>
           <div class="blank">
