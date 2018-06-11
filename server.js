@@ -17,7 +17,14 @@ let allLetters = [];
 console.log(currentWord);
 
 app.get('/', (req, res) => {
-  res.render('index.ejs', {
+  gameWords = ['RABBIT', 'BUNNY', 'CARROT', 'LETTUCE', 'BURROW', 'FLUFFY', 'FLOPPY', 'LITTER', 'PELLETS'];
+  currentWord = gameWords[Math.floor(Math.random() * (gameWords.length))].split("");
+  currentLetter = null;
+  guesses = 8;
+  guessWord = null;
+  correctLetters = [];
+  allLetters = [];
+   res.render('index.ejs', {
     alphabet: alphabet,
     gameWords: gameWords,
     currentWord: currentWord,

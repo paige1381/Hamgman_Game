@@ -50,11 +50,16 @@
           };
         };
 
-        if (count === currentWord.length) { %>
+        if (count === currentWord.length && gameWords.length > 1) { %>
           <div>Great job! Play again?</div>
           <a href="/newRound" class="word-button">Yes</a>
           <div class="word-button">No</div>
         <% }
+        else if (count === currentWord.length && gameWords.length === 1) { %>
+          <div>You won!!!</div>
+          <a href="/" class="word-button">Start over</a>
+        <% }
+
         else if (guesses === 0) { %>
           <div>You lost :(</div>
           <a href="/" class="word-button">Start over</a>
