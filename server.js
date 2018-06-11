@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
     alphabet: alphabet,
     gameWords: gameWords,
     currentWord: currentWord,
-    guesses: 8,
+    guesses: guesses,
     currentLetter: null,
     guessWord: guessWord,
     correctLetters: [],
