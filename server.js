@@ -29,10 +29,10 @@ app.get('/', (req, res) => {
     gameWords: gameWords,
     currentWord: currentWord,
     guesses: guesses,
-    currentLetter: null,
+    currentLetter: currentLetter,
     guessWord: guessWord,
-    correctLetters: [],
-    allLetters: []
+    correctLetters: correctLetters,
+    allLetters: allLetters
   });
   console.log('--- new game ---');
   console.log('gameWords:', gameWords);
