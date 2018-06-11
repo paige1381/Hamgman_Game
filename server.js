@@ -108,7 +108,7 @@ app.get('/:id', (req, res) => {
     correctLetters.push(currentLetter);
   };
   correctLetters = [...new Set(correctLetters)];
-  allLetters.push(currentLetter)
+  allLetters.push(currentLetter);
   guesses -= .5;
   res.render('index.ejs', {
     alphabet: alphabet,
