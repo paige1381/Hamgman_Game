@@ -73,7 +73,7 @@ app.get('/newRound', (req, res) => {
 
 
 app.get('/undo', (req, res) => {
-  guesses += .5;
+  guesses++;
   let undoLetter = allLetters.pop();
   console.log(undoLetter);
   console.log(allLetters);
