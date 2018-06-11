@@ -14,7 +14,11 @@
         else { %>
           <div class="link">Undo</div>
         <% } %>
-        <a href="#" class="link">Bookmark</a>
+        <a href="/share" class="share link">Share</a>
+        <% if (link) { %>
+          <span>: <%= link %></span>
+        <% } %>
+        <%# <a href="#" class="link">Bookmark</a>%>
       </div>
     </nav>
 
@@ -34,10 +38,14 @@
       </div>
 
 
-      <%= currentLetter %>
-      <%= allLetters.length %>
+      <%= currentLetter %></br>
+      <% for (i = 0; i < currentWord.length; i++) { %>
+        <span class="test"><%=currentWord[i]%></span>
+      <% } %>
+</br>
+      <%= allLetters.length %></br>
       <% for (i = 0; i < allLetters.length; i++) { %>
-        <span><%=allLetters[i]%></span>
+        <span class="test"><%=allLetters[i]%></span>
       <% } %>
 
 

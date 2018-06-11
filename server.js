@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
+// const url = require('url');
 
 app.use(express.static('public'));
 
@@ -13,6 +14,7 @@ let guesses = 8;
 let guessWord = null;
 let correctLetters = [];
 let allLetters = [];
+let link = null;
 
 console.log(currentWord);
 
@@ -24,6 +26,7 @@ app.get('/', (req, res) => {
   guessWord = null;
   correctLetters = [];
   allLetters = [];
+  link = null;
    res.render('index.ejs', {
     alphabet: alphabet,
     gameWords: gameWords,
@@ -32,7 +35,8 @@ app.get('/', (req, res) => {
     currentLetter: currentLetter,
     guessWord: guessWord,
     correctLetters: correctLetters,
-    allLetters: allLetters
+    allLetters: allLetters,
+    link: link
   });
   console.log('--- new game ---');
   console.log('gameWords:', gameWords);
@@ -52,6 +56,7 @@ app.get('/newRound', (req, res) => {
   currentLetter = [];
   correctLetters = [];
   allLetters = [];
+  link = null;
   res.render('index.ejs', {
     alphabet: alphabet,
     gameWords: gameWords,
@@ -60,7 +65,31 @@ app.get('/newRound', (req, res) => {
     currentLetter: currentLetter,
     guessWord: guessWord,
     correctLetters: correctLetters,
-    allLetters: allLetters
+    allLetters: allLetters,
+    link: link
+  });
+  console.log('--- new round ---');
+  console.log('gameWords:', gameWords);
+  console.log('currentWord:', currentWord);
+  console.log('guesses:', guesses);
+  console.log('currentLetter:', currentLetter);
+  console.log('correctLetters:', correctLetters);
+  console.log('allLetters:', allLetters);
+});
+
+
+app.get('/share', (req, res) => {
+  link = req.protocol + '://' + req.get('host') + req.originalUrl;
+  res.render('index.ejs', {
+    alphabet: alphabet,
+    gameWords: gameWords,
+    currentWord: currentWord,
+    guesses: guesses,
+    currentLetter: currentLetter,
+    guessWord: guessWord,
+    correctLetters: correctLetters,
+    allLetters: allLetters,
+    link: link
   });
   console.log('--- new round ---');
   console.log('gameWords:', gameWords);
@@ -82,6 +111,7 @@ app.get('/undo', (req, res) => {
     correctLetters.splice(index, 1);
   }
   currentLetter = allLetters[allLetters.length - 1];
+  link = null;
   res.render('index.ejs', {
     alphabet: alphabet,
     gameWords: gameWords,
@@ -90,7 +120,8 @@ app.get('/undo', (req, res) => {
     currentLetter: currentLetter,
     guessWord: guessWord,
     correctLetters: correctLetters,
-    allLetters: allLetters
+    allLetters: allLetters,
+    link: link
   });
   console.log('--- undo ---');
   console.log('gameWords:', gameWords);
@@ -110,6 +141,7 @@ app.get('/:id', (req, res) => {
   correctLetters = [...new Set(correctLetters)];
   allLetters.push(currentLetter);
   guesses -= 1;
+  link = null;
   res.render('index.ejs', {
     alphabet: alphabet,
     gameWords: gameWords,
@@ -118,7 +150,8 @@ app.get('/:id', (req, res) => {
     currentLetter: currentLetter,
     guessWord: guessWord,
     correctLetters: correctLetters,
-    allLetters: allLetters
+    allLetters: allLetters,
+    link: link
   });
   console.log('--- new turn ---');
   console.log('gameWords:', gameWords);

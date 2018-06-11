@@ -13,6 +13,11 @@ a {
   color: black;
 }
 
+.test {
+  margin: 5px;
+  border-bottom: 1px solid black;
+}
+
 .menu {
   width: 75%;
   margin: auto;
@@ -23,6 +28,10 @@ a {
 .link {
   padding: 0 20px;
   text-decoration: underline;
+}
+
+.share {
+  padding-right: 0;
 }
 
  .link:hover, .key:hover, .word-button:hover  {
