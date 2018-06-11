@@ -80,7 +80,7 @@ app.get('/:id', (req, res) => {
   };
   correctLetters = [...new Set(correctLetters)];
   // guesses--;
-  guesses -= 1;
+  guesses -= .5;
   res.render('index.ejs', {
     alphabet: alphabet,
     gameWords: gameWords,
