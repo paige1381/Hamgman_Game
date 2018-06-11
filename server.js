@@ -37,7 +37,6 @@ app.get('/:id', (req, res) => {
   };
   correctLetters = [...new Set(correctLetters)];
   guesses--;
-  console.log(guesses);
   res.render('index.ejs', {
     alphabet: alphabet,
     gameWords: gameWords,
@@ -48,7 +47,6 @@ app.get('/:id', (req, res) => {
     correctLetters: correctLetters,
     allLetters: allLetters.push(currentLetter),
   });
-  console.log(guesses);
   console.log('currentLetter:', currentLetter);
   console.log('allLetters:', allLetters);
 });

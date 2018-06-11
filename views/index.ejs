@@ -14,9 +14,14 @@
     <main>
 
       <div class="keyboard">
-        <% for (i = 0; i < alphabet.length; i++) { %>
-          <a href="/<%= i %>" class="key"><%=alphabet[i]%></a>
-        <% } %>
+        <% for (i = 0; i < alphabet.length; i++) {
+          if (guesses > 0) { %>
+            <a href="/<%= i %>" class="key"><%=alphabet[i]%></a>
+          <% }
+          else { %>
+            <div class="key"><%=alphabet[i]%></div>
+          <% }
+        } %>
       </div>
 
       <div class="word">
@@ -36,11 +41,32 @@
         <% } %>
       </div>
 
-      <div class="guesses">
-        <%=guesses%> guesses left!
-      </div>
 
       <div class="play-again">
+
+        <% let count = 0;
+        for (i = 0; i < currentWord.length; i++) {
+          console.log(correctLetters.indexOf(currentWord[i]));
+          if (correctLetters.indexOf(currentWord[i]) >= 0) {
+            console.log(correctLetters.indexOf(currentWord[i]));
+            count++;
+          };
+        };
+        console.log('count:', count);
+
+        if (count === currentWord.length) { %>
+          <div>Great job! Play again?</div>
+          <a href="/" class="word-button">Yes</a>
+          <div class="word-button">No</div>
+        <% }
+        else if (guesses === 0) { %>
+          <div>You lost :(</div>
+          <a href="/" class="word-button">Start over</a>
+        <% }
+        else { %>
+          <%=guesses%> guesses left!
+        <% } %>
+
       </div>
     </main>
 
