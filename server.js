@@ -72,6 +72,35 @@ app.get('/newRound', (req, res) => {
 });
 
 
+app.get('/undo', (req, res) => {
+  guesses++;
+  let undoLetter = allLetters.pop();
+  console.log(undoLetter);
+  console.log(allLetters);
+  let index = correctLetters.indexOf(undoLetter);
+  if (index >= 0) {
+    correctLetters.splice(index, 1);
+  }
+  currentLetter = allLetters[allLetters.length - 1];
+  res.render('index.ejs', {
+    alphabet: alphabet,
+    gameWords: gameWords,
+    currentWord: currentWord,
+    guesses: guesses,
+    currentLetter: currentLetter,
+    guessWord: guessWord,
+    correctLetters: correctLetters,
+    allLetters: allLetters
+  });
+  console.log('--- undo ---');
+  console.log('gameWords:', gameWords);
+  console.log('currentWord:', currentWord);
+  console.log('guesses:', guesses);
+  console.log('currentLetter:', currentLetter);
+  console.log('correctLetters:', correctLetters);
+  console.log('allLetters:', allLetters);
+});
+
 
 app.get('/:id', (req, res) => {
   currentLetter = alphabet[req.params.id];
@@ -79,8 +108,7 @@ app.get('/:id', (req, res) => {
     correctLetters.push(currentLetter);
   };
   correctLetters = [...new Set(correctLetters)];
-  // guesses--;
-  guesses -= .5;
+  guesses -= 1;
   res.render('index.ejs', {
     alphabet: alphabet,
     gameWords: gameWords,

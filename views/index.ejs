@@ -8,16 +8,22 @@
   <body>
     <nav>
       <div class="menu">
+        <% if (guesses < 8) { %>
+          <a href="/undo" class="link">Undo</a>
+        <% }
+        else { %>
+          <div class="link">Undo</div>
+        <% } %>
+        <a href="#" class="link">Bookmark</a>
       </div>
     </nav>
 
     <main>
 
       <div class="keyboard">
-        <% for (i = 0; i < alphabet.length; i++) {%>
-            <a href="/<%= i %>" class="key"><%=alphabet[i]%></a>
-          <% 
-        } %>
+        <% for (i = 0; i < alphabet.length; i++) { %>
+          <a href="/<%= i %>" class="key"><%= alphabet[i] %></a>
+        <% } %>
       </div>
 
       <div class="word">
@@ -29,16 +35,6 @@
 
       <% for (i = 0; i < currentWord.length; i++) { %>
         <span><%=currentWord[i]%></span>
-      <% } %>
-
-      <%= guesses %>
-
-      <%= currentLetter %></br>
-      <% for (i = 0; i < correctLetters.length; i++) { %>
-        <span><%=correctLetters[i]%></span>
-      <% } %></br>
-      <% for (i = 0; i < allLetters.length; i++) { %>
-        <span><%=allLetters[i]%></span>
       <% } %>
 
       <div class="blanks">
