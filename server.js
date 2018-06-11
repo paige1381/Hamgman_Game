@@ -73,7 +73,7 @@ app.get('/newRound', (req, res) => {
 
 
 app.get('/undo', (req, res) => {
-  guesses++;
+  guesses += .5;
   let undoLetter = allLetters.pop();
   console.log(undoLetter);
   console.log(allLetters);
@@ -108,7 +108,7 @@ app.get('/:id', (req, res) => {
     correctLetters.push(currentLetter);
   };
   correctLetters = [...new Set(correctLetters)];
-  guesses -= 1;
+  guesses -= .5;
   res.render('index.ejs', {
     alphabet: alphabet,
     gameWords: gameWords,
