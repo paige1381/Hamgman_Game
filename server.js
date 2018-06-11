@@ -108,6 +108,7 @@ app.get('/:id', (req, res) => {
     correctLetters.push(currentLetter);
   };
   correctLetters = [...new Set(correctLetters)];
+  allLetters.push(currentLetter)
   guesses -= .5;
   res.render('index.ejs', {
     alphabet: alphabet,
@@ -117,7 +118,7 @@ app.get('/:id', (req, res) => {
     currentLetter: currentLetter,
     guessWord: guessWord,
     correctLetters: correctLetters,
-    allLetters: allLetters.push(currentLetter),
+    allLetters: allLetters
   });
   console.log('--- new turn ---');
   console.log('gameWords:', gameWords);
