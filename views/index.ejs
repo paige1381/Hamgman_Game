@@ -14,13 +14,9 @@
     <main>
 
       <div class="keyboard">
-        <% for (i = 0; i < alphabet.length; i++) {
-          if (guesses > 0) { %>
+        <% for (i = 0; i < alphabet.length; i++) {%>
             <a href="/<%= i %>" class="key"><%=alphabet[i]%></a>
-          <% }
-          else { %>
-            <div class="key"><%=alphabet[i]%></div>
-          <% }
+          <% 
         } %>
       </div>
 
