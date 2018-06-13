@@ -1,16 +1,15 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
-// const url = require('url');
 
 app.use(express.static('public'));
 
 
 const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O','P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-let gameWords = ['RABBIT', 'BUNNY', 'CARROT', 'LETTUCE', 'BURROW', 'FLUFFY', 'FLOPPY', 'LITTER', 'PELLETS'];
-let currentWord = gameWords[Math.floor(Math.random() * (gameWords.length))].split("");
+let gameWords = [];
+let currentWord = null;
 let currentLetter = null;
-let guesses = 8;
+let guesses = null;
 let guessWord = null;
 let correctLetters = [];
 let allLetters = [];
@@ -37,6 +36,7 @@ app.get('/', (req, res) => {
     allLetters: allLetters,
     link: link
   });
+  console.log('currentWord:', currentWord);
 });
 
 
@@ -109,7 +109,7 @@ app.get('/:id', (req, res) => {
   };
   correctLetters = [...new Set(correctLetters)];
   allLetters.push(currentLetter);
-  guesses -= 1;
+  guesses--;
   link = null;
   res.render('index.ejs', {
     alphabet: alphabet,
